@@ -49,11 +49,11 @@ public class FirstPersonControls : MonoBehaviour
     private void Update()
     {
         // Call Move and LookAround methods every frame to handle player movement and camera rotation
-        Move();
+        Movement();
         LookAround();
         ApplyGravity();
     }
-    public void Move()
+    public void Movement()
     {
         // Create a movement vector based on the input
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
