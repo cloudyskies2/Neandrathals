@@ -696,6 +696,9 @@ MonoBehaviour:
   projectileSpeed: 20
   holdPosition: {fileID: 995450320}
   pickUpRange: 3
+  crouchHeight: 1
+  standingHeight: 2
+  crouchSpeed: 1
 --- !u!1 &995450319
 GameObject:
   m_ObjectHideFlags: 0
