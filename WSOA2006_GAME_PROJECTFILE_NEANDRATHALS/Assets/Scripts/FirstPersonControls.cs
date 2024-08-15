@@ -51,17 +51,13 @@ public class FirstPersonControls : MonoBehaviour
         // Enable the input actions
         playerInput.Player.Enable();
         // Subscribe to the movement input events
-        playerInput.Player.Movement.performed += ctx => moveInput =
-        ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
+        playerInput.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
 
-        playerInput.Player.Movement.canceled += ctx => moveInput =
-        Vector2.zero; // Reset moveInput when movement input is canceled
+        playerInput.Player.Movement.canceled += ctx => moveInput = Vector2.zero; // Reset moveInput when movement input is canceled
                   // Subscribe to the look input events
 
-        playerInput.Player.LookAround.performed += ctx => lookInput =
-        ctx.ReadValue<Vector2>(); // Update lookInput when look input is performed
-        playerInput.Player.LookAround.canceled += ctx => lookInput =
-        Vector2.zero; // Reset lookInput when look input is canceled
+        playerInput.Player.LookAround.performed += ctx => lookInput = ctx.ReadValue<Vector2>(); // Update lookInput when look input is performed
+        playerInput.Player.LookAround.canceled += ctx => lookInput = Vector2.zero; // Reset lookInput when look input is canceled
                       // Subscribe to the jump input event
 
         playerInput.Player.Jump.performed += ctx => Jump(); // Call the Jump method when jump input is performed
@@ -73,11 +69,13 @@ public class FirstPersonControls : MonoBehaviour
         playerInput.Player.PickUp.performed += ctx => PickUpObject(); // Call the PickUpObject method when pick-up input is performed
 
         playerInput.Player.Crouch.performed += ctx =>ToggleCrouch(); // Call the ToggleCrouch method when crouch input is performed
+
+        playerInput.Player.Drop.performed += ctx => DropObject();
     }
     private void Update()
     {
         // Call Move and LookAround methods every frame to handle player movement and camera rotation
-    Move();
+        Move();
         LookAround();
         ApplyGravity();
     }
@@ -114,12 +112,10 @@ public class FirstPersonControls : MonoBehaviour
 
         // Vertical rotation: Adjust the vertical look rotation and clamp it to prevent flipping
         verticalLookRotation -= LookY;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f,
-        90f);
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
 
         // Apply the clamped vertical rotation to the player camera
-        playerCamera.localEulerAngles = new Vector3(verticalLookRotation,
-        0, 0);
+        playerCamera.localEulerAngles = new Vector3(verticalLookRotation, 0, 0);
     }
     public void ApplyGravity()
     {
@@ -200,6 +196,20 @@ public class FirstPersonControls : MonoBehaviour
                 heldObject.transform.parent = holdPosition;
                 holdingGun = true;
             }
+        }
+    }
+
+     public void DropObject()
+    {
+        if (heldObject != null)
+        {
+            // Enable physics and detach the object
+            heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+            heldObject.transform.parent = null; // Detach from hold position
+
+            // Clear the reference to the held object
+            heldObject = null;
+            holdingGun = false; // Reset holdingGun flag if the dropped object is a gun
         }
     }
 
