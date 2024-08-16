@@ -14,6 +14,10 @@ private GameObject balloon;
     {
       balloon = collision.gameObject;
       Destroy(balloon);
+      
+    Collider balloonCollider = balloon.GetComponent<Collider>();
+    balloonCollider.enabled= false;
+    balloonCollider.enabled= true;
     }
     }
 }
