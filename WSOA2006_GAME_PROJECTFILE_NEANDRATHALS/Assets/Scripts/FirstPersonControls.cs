@@ -39,13 +39,13 @@ public class FirstPersonControls : MonoBehaviour
     public float crouchSpeed = 1.5f; // Speed at which player moves when crouching
     private bool isCrouching = false; // Whether the player is currently crouching
 
-        [Header("THROWING SETTINGS")]
+        [Header("THROWING SETTINGS")] //The ENTER key is pressed to charge and throw a held object
     [Space(5)]
-    public float minThrowForce = 5f; // Minimum force applied when throwing
-    public float maxThrowForce = 20f; // Maximum force applied when throwing
+    public float minThrowForce = 2f; // Minimum force applied when throwing
+    public float maxThrowForce = 15f; // Maximum force applied when throwing
     private float currentThrowForce; // Force to apply when throwing
     private bool isChargingThrow = false; // Whether the player is charging the throw
-    private GameObject balloon;
+    private GameObject balloon; //The player uses the small yellow balls to shoot at the spheres on the wall
 
 
     private void Awake()
@@ -92,7 +92,7 @@ public class FirstPersonControls : MonoBehaviour
         LookAround();
         ApplyGravity();
 
-                // Update the throw charge if charging
+        // Update the throw charge if charging
         if (isChargingThrow)
         {
             ChargeThrow();
@@ -237,14 +237,14 @@ public class FirstPersonControls : MonoBehaviour
         }
     }
 
-      public void ChargeThrow()
+      public void ChargeThrow() //Hold down the ENTER key to charge the objects force
     {
         // Increase the throw force over time, clamping to the maximum value
         currentThrowForce += Time.deltaTime * (maxThrowForce - minThrowForce);
         currentThrowForce = Mathf.Clamp(currentThrowForce, minThrowForce, maxThrowForce);
     }
 
-       public void ThrowObject()
+       public void ThrowObject() //Release ENTER key to throw the object
     {
         if (heldObject != null)
         {
@@ -264,7 +264,7 @@ public class FirstPersonControls : MonoBehaviour
         }
     }
 
-
+    //Use the R key to drop the held object
      public void DropObject()
     {
         if (heldObject != null)
