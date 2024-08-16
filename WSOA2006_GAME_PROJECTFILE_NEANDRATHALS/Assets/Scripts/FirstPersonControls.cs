@@ -39,6 +39,16 @@ public class FirstPersonControls : MonoBehaviour
     public float crouchSpeed = 1.5f; // Speed at which player moves when crouching
     private bool isCrouching = false; // Whether the player is currently crouching
 
+//<<<<<<< HEAD
+//=======
+        [Header("THROWING SETTINGS")] //The ENTER key is pressed to charge and throw a held object
+    [Space(5)]
+    public float minThrowForce = 2f; // Minimum force applied when throwing
+    public float maxThrowForce = 15f; // Maximum force applied when throwing
+    private float currentThrowForce; // Force to apply when throwing
+    private bool isChargingThrow = false; // Whether the player is charging the throw
+    private GameObject balloon; //The player uses the small yellow balls to shoot at the spheres on the wall
+//>>>>>>> Sisanda-New-Branch
 
     [Header("CLIMB SETTINGS")]
     [Space(5)]
@@ -93,7 +103,16 @@ public class FirstPersonControls : MonoBehaviour
         Move();
         LookAround();
         ApplyGravity();
+//<<<<<<< HEAD
         //Climb();
+//=======
+
+        // Update the throw charge if charging
+        if (isChargingThrow)
+        {
+            ChargeThrow();
+        }
+//>>>>>>> Sisanda-New-Branch
     }
     public void Move()
     {
@@ -186,7 +205,7 @@ public class FirstPersonControls : MonoBehaviour
         RaycastHit hit;
 
         // Debugging: Draw the ray in the Scene view
-        Debug.DrawRay(playerCamera.position, playerCamera.forward * pickUpRange, Color.red, 2f);
+        Debug.DrawRay(playerCamera.position, playerCamera.forward * pickUpRange, Color.red, 3f);
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
@@ -218,6 +237,70 @@ public class FirstPersonControls : MonoBehaviour
         }
     }
 
+//<<<<<<< HEAD
+//=======
+    void OnCollisionEnter(Collision collision)
+    {
+
+    if(collision.gameObject.CompareTag("Balloon"))
+    {
+      balloon = collision.gameObject;
+      Destroy(balloon);
+    }
+    }
+
+      public void StartChargingThrow()
+    {
+        if (heldObject != null)
+        {
+            isChargingThrow = true;
+            currentThrowForce = minThrowForce; // Start with the minimum throw force
+        }
+    }
+
+      public void ChargeThrow() //Hold down the ENTER key to charge the objects force
+    {
+        // Increase the throw force over time, clamping to the maximum value
+        currentThrowForce += Time.deltaTime * (maxThrowForce - minThrowForce);
+        currentThrowForce = Mathf.Clamp(currentThrowForce, minThrowForce, maxThrowForce);
+    }
+
+       public void ThrowObject() //Release ENTER key to throw the object
+    {
+        if (heldObject != null)
+        {
+            // Enable physics and detach the object
+            heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+            heldObject.transform.parent = null; // Detach from hold position
+
+            // Apply the charged force to "throw" the object
+            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+            rb.AddForce(playerCamera.forward * currentThrowForce, ForceMode.Impulse);
+
+            // Clear the reference to the held object
+            heldObject = null;
+            holdingGun = false; // Reset holdingGun flag if the dropped object is a gun
+
+            isChargingThrow = false; // Stop charging
+        }
+    }
+
+    //Use the R key to drop the held object
+     public void DropObject()
+    {
+        if (heldObject != null)
+        {
+            // Enable physics and detach the object
+            heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+            heldObject.transform.parent = null; // Detach from hold position
+
+            // Clear the reference to the held object
+            heldObject = null;
+            holdingGun = false; // Reset holdingGun flag if the dropped object is a gun
+        }
+    }
+
+//>>>>>>> Sisanda-New-Branch
     public void ToggleCrouch()
     {
         if (isCrouching)
