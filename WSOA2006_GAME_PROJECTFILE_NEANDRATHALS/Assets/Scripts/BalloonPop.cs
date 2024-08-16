@@ -7,17 +7,14 @@ public class BalloonPop : MonoBehaviour
 {
 private GameObject balloon;
 
- void OnCollisionEnter(Collision collision)
+
+void OnCollisionEnter(Collision collision)
     {
 
     if(collision.gameObject.CompareTag("Balloon"))
-    {
+      {
       balloon = collision.gameObject;
       Destroy(balloon);
-      
-    Collider balloonCollider = balloon.GetComponent<Collider>();
-    balloonCollider.enabled= false;
-    balloonCollider.enabled= true;
-    }
+      }
     }
 }

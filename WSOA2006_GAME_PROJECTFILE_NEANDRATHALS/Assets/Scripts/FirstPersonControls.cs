@@ -186,7 +186,7 @@ public class FirstPersonControls : MonoBehaviour
         RaycastHit hit;
 
         // Debugging: Draw the ray in the Scene view
-        Debug.DrawRay(playerCamera.position, playerCamera.forward * pickUpRange, Color.red, 2f);
+        Debug.DrawRay(playerCamera.position, playerCamera.forward * pickUpRange, Color.red, 3f);
 
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
