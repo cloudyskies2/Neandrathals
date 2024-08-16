@@ -39,6 +39,15 @@ public class FirstPersonControls : MonoBehaviour
     public float crouchSpeed = 1.5f; // Speed at which player moves when crouching
     private bool isCrouching = false; // Whether the player is currently crouching
 
+        [Header("THROWING SETTINGS")]
+    [Space(5)]
+    public float minThrowForce = 5f; // Minimum force applied when throwing
+    public float maxThrowForce = 20f; // Maximum force applied when throwing
+    private float currentThrowForce; // Force to apply when throwing
+    private bool isChargingThrow = false; // Whether the player is charging the throw
+    private GameObject balloon;
+
+
     private void Awake()
     {
         // Get and store the CharacterController component attached to this GameObject
@@ -71,6 +80,10 @@ public class FirstPersonControls : MonoBehaviour
         playerInput.Player.Crouch.performed += ctx =>ToggleCrouch(); // Call the ToggleCrouch method when crouch input is performed
 
         playerInput.Player.Drop.performed += ctx => DropObject();
+
+                // Subscribe to the drop/throw input event
+        playerInput.Player.Throw.performed += ctx => StartChargingThrow(); // Start charging throw when input is performed
+        playerInput.Player.Throw.canceled += ctx => ThrowObject(); // Throw the object when input is released
     }
     private void Update()
     {
@@ -78,6 +91,12 @@ public class FirstPersonControls : MonoBehaviour
         Move();
         LookAround();
         ApplyGravity();
+
+                // Update the throw charge if charging
+        if (isChargingThrow)
+        {
+            ChargeThrow();
+        }
     }
     public void Move()
     {
@@ -198,6 +217,53 @@ public class FirstPersonControls : MonoBehaviour
             }
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+
+    if(collision.gameObject.CompareTag("Balloon"))
+    {
+      balloon = collision.gameObject;
+      Destroy(balloon);
+    }
+    }
+
+      public void StartChargingThrow()
+    {
+        if (heldObject != null)
+        {
+            isChargingThrow = true;
+            currentThrowForce = minThrowForce; // Start with the minimum throw force
+        }
+    }
+
+      public void ChargeThrow()
+    {
+        // Increase the throw force over time, clamping to the maximum value
+        currentThrowForce += Time.deltaTime * (maxThrowForce - minThrowForce);
+        currentThrowForce = Mathf.Clamp(currentThrowForce, minThrowForce, maxThrowForce);
+    }
+
+       public void ThrowObject()
+    {
+        if (heldObject != null)
+        {
+            // Enable physics and detach the object
+            heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+            heldObject.transform.parent = null; // Detach from hold position
+
+            // Apply the charged force to "throw" the object
+            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+            rb.AddForce(playerCamera.forward * currentThrowForce, ForceMode.Impulse);
+
+            // Clear the reference to the held object
+            heldObject = null;
+            holdingGun = false; // Reset holdingGun flag if the dropped object is a gun
+
+            isChargingThrow = false; // Stop charging
+        }
+    }
+
 
      public void DropObject()
     {
