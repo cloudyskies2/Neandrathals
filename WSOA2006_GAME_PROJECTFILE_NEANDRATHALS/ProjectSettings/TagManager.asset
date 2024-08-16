@@ -8,6 +8,7 @@ TagManager:
   - Gun
   - PickUp
   - Balloon
+  - Ladder
   layers:
   - Default
   - TransparentFX
