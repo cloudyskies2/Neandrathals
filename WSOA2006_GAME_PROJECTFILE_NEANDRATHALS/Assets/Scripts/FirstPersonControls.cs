@@ -1,4 +1,4 @@
-
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class FirstPersonControls : MonoBehaviour
@@ -39,6 +39,8 @@ public class FirstPersonControls : MonoBehaviour
     public float crouchSpeed = 1.5f; // Speed at which player moves when crouching
     private bool isCrouching = false; // Whether the player is currently crouching
 
+//<<<<<<< HEAD
+//=======
         [Header("THROWING SETTINGS")] //The ENTER key is pressed to charge and throw a held object
     [Space(5)]
     public float minThrowForce = 2f; // Minimum force applied when throwing
@@ -46,7 +48,17 @@ public class FirstPersonControls : MonoBehaviour
     private float currentThrowForce; // Force to apply when throwing
     private bool isChargingThrow = false; // Whether the player is charging the throw
     private GameObject balloon; //The player uses the small yellow balls to shoot at the spheres on the wall
+//>>>>>>> Sisanda-New-Branch
 
+    [Header("CLIMB SETTINGS")]
+    [Space(5)]
+    public float climbHeight = 1f; // Height of clmbing intervals
+    public float climbSpeed = 1f; // Speed at which player moves when climbing
+    public float climbingRange = 1f; // Range whithin a player can climb
+    private bool isClimbing = false; // Whether the player is currently climbing
+    public GameObject climbObject; // Reference to the object to be climbed
+    public Transform climbPosition; // Position to where the climbing will be attached
+    //public Vector3 verticalVelocity;
 
     private void Awake()
     {
@@ -60,13 +72,17 @@ public class FirstPersonControls : MonoBehaviour
         // Enable the input actions
         playerInput.Player.Enable();
         // Subscribe to the movement input events
-        playerInput.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
+        playerInput.Player.Movement.performed += ctx => moveInput =
+        ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
 
-        playerInput.Player.Movement.canceled += ctx => moveInput = Vector2.zero; // Reset moveInput when movement input is canceled
-                  // Subscribe to the look input events
+        playerInput.Player.Movement.canceled += ctx => moveInput =
+        Vector2.zero; // Reset moveInput when movement input is canceled
+                      // Subscribe to the look input events
 
-        playerInput.Player.LookAround.performed += ctx => lookInput = ctx.ReadValue<Vector2>(); // Update lookInput when look input is performed
-        playerInput.Player.LookAround.canceled += ctx => lookInput = Vector2.zero; // Reset lookInput when look input is canceled
+        playerInput.Player.LookAround.performed += ctx => lookInput =
+        ctx.ReadValue<Vector2>(); // Update lookInput when look input is performed
+        playerInput.Player.LookAround.canceled += ctx => lookInput =
+        Vector2.zero; // Reset lookInput when look input is canceled
                       // Subscribe to the jump input event
 
         playerInput.Player.Jump.performed += ctx => Jump(); // Call the Jump method when jump input is performed
@@ -77,13 +93,9 @@ public class FirstPersonControls : MonoBehaviour
         // Subscribe to the pick-up input event
         playerInput.Player.PickUp.performed += ctx => PickUpObject(); // Call the PickUpObject method when pick-up input is performed
 
-        playerInput.Player.Crouch.performed += ctx =>ToggleCrouch(); // Call the ToggleCrouch method when crouch input is performed
+        playerInput.Player.Crouch.performed += ctx => ToggleCrouch(); // Call the ToggleCrouch method when crouch input is performed
 
-        playerInput.Player.Drop.performed += ctx => DropObject();
-
-                // Subscribe to the drop/throw input event
-        playerInput.Player.Throw.performed += ctx => StartChargingThrow(); // Start charging throw when input is performed
-        playerInput.Player.Throw.canceled += ctx => ThrowObject(); // Throw the object when input is released
+        //playerInput.Player.Climb.performed += ctx => Climb(); // Call the Climb method when climb input is performed
     }
     private void Update()
     {
@@ -91,12 +103,16 @@ public class FirstPersonControls : MonoBehaviour
         Move();
         LookAround();
         ApplyGravity();
+//<<<<<<< HEAD
+        //Climb();
+//=======
 
         // Update the throw charge if charging
         if (isChargingThrow)
         {
             ChargeThrow();
         }
+//>>>>>>> Sisanda-New-Branch
     }
     public void Move()
     {
@@ -111,7 +127,7 @@ public class FirstPersonControls : MonoBehaviour
 
         float currentSpeed;
 
-        if(isCrouching)
+        if (isCrouching)
         {
             currentSpeed = crouchSpeed;
         }
@@ -119,6 +135,7 @@ public class FirstPersonControls : MonoBehaviour
         {
             currentSpeed = moveSpeed;
         }
+
     }
     public void LookAround()
     {
@@ -131,10 +148,12 @@ public class FirstPersonControls : MonoBehaviour
 
         // Vertical rotation: Adjust the vertical look rotation and clamp it to prevent flipping
         verticalLookRotation -= LookY;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f, 90f);
+        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -90f,
+        90f);
 
         // Apply the clamped vertical rotation to the player camera
-        playerCamera.localEulerAngles = new Vector3(verticalLookRotation, 0, 0);
+        playerCamera.localEulerAngles = new Vector3(verticalLookRotation,
+        0, 0);
     }
     public void ApplyGravity()
     {
@@ -218,6 +237,8 @@ public class FirstPersonControls : MonoBehaviour
         }
     }
 
+//<<<<<<< HEAD
+//=======
     void OnCollisionEnter(Collision collision)
     {
 
@@ -279,9 +300,10 @@ public class FirstPersonControls : MonoBehaviour
         }
     }
 
+//>>>>>>> Sisanda-New-Branch
     public void ToggleCrouch()
     {
-        if(isCrouching)
+        if (isCrouching)
         {
             characterController.height = standingHeight;
             isCrouching = false;
@@ -292,4 +314,118 @@ public class FirstPersonControls : MonoBehaviour
             isCrouching = true;
         }
     }
+
+    public void Climb()
+    {
+        // Create a movement vector based on the input
+        Vector3 climb = new Vector3(moveInput.x, 0, moveInput.y);
+
+        // Transform direction from local to world space
+        climb = transform.TransformDirection(climb);
+
+        // Move the character controller based on the movement vector and speed
+        characterController.Move(climb * climbSpeed * Time.deltaTime);
+
+        // Perform a raycast from the camera's position forward
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        RaycastHit hit;
+
+        /*Title: How to Climb Ladders (First Person, Third Person, Unity Tutorial)
+         *Author: Code Monkey
+         *Date: 15 August 2024
+         *Code version: 2021.3.0f1
+         *Availability: https://youtu.be/44qVzrdvm04?si=tQpFxbd5uvkX0ChE
+        */
+
+
+        //if (isClimbing)
+        //{
+
+        //}
+
+        Vector3 climbingDirection = Quaternion.Euler(0.0f, climbHeight, 0.0f) * Vector3.forward;
+
+        if (Physics.Raycast(transform.position + Vector3.up, climbingDirection, out RaycastHit raycastHit))
+        {
+            if (raycastHit.transform.TryGetComponent(out climbObject))
+            {
+                //GrabClimb();
+                climbingDirection.x = 0f;
+                climbingDirection.y = climbingDirection.z;
+                climbingDirection.z = 0f;
+                climbSpeed = 0f;
+            }
+        }
+
+        characterController.Move(climbingDirection.normalized * (climbSpeed * Time.deltaTime) + new Vector3(0.0f, climbSpeed, 0.0f) * Time.deltaTime);
+
+        // Debugging: Draw the ray in the Scene view
+        Debug.DrawRay(playerCamera.position, playerCamera.forward * climbingRange, Color.black, 1f);
+
+        if (Physics.Raycast(ray, out hit, climbingRange))
+        {
+            if (hit.collider.CompareTag("Climb"))
+            {
+                // Climb the object
+                climbObject = hit.collider.gameObject;
+                climbObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+
+                // Attach the object to the hold position
+                characterController.transform.position = holdPosition.position;
+                characterController.transform.rotation = holdPosition.rotation;
+                characterController.transform.parent = holdPosition;
+
+                // Pick up the object
+                climbObject = hit.collider.gameObject;
+                climbObject.GetComponent<Rigidbody>().isKinematic = true;
+
+                // Disable physics
+                // Attach the object to the hold position
+                climbObject.transform.position = holdPosition.position;
+                climbObject.transform.rotation = holdPosition.rotation;
+                climbObject.transform.parent = holdPosition;
+                isClimbing = true;
+            }
+
+            // Check if the hit object has the tag "Ground"
+            if (hit.collider.CompareTag("Ground"))
+            {
+                // Stop climbing the object
+                climbObject = hit.collider.gameObject;
+                //climbHeight.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+
+                //characterController.Move(moveInput);
+                Move();
+
+            }
+        }
+
+        float currentSpeed;
+
+        if (isClimbing)
+        {
+            currentSpeed = climbSpeed;
+            characterController.height = climbHeight;
+            isClimbing = true;
+        }
+        else
+        {
+            currentSpeed = moveSpeed;
+            characterController.height = standingHeight;
+            isClimbing = false;
+        }
+
+        climbObject.transform.parent = null; // Detach from hold position
+        climbObject = null;
+    }
+
+    /*private void GrabClimb()
+    {
+        isClimbing = true;
+    }
+    private void DropClimb()
+    {
+
+    }*/
+
 }
