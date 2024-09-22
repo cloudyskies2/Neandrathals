@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 11082ac1f38e01d488007ec529c3c1e3
+guid: 0ff5fe1f35b7d4342add25188e7410a9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Baked textures
+    second: {fileID: 2100000, guid: 6ce2dcb2abbe67544b7690d9c4e85232, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
