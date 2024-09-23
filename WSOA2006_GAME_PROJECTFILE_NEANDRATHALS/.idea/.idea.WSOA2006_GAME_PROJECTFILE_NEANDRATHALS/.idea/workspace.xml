@@ -5,7 +5,275 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="060e2f1f-443b-42c4-86b8-17098e60adfe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Handle 1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Handle 2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Handle 2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Plank 1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Plank 1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Plank 5.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Plank 5.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Plank 6.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Plank 6.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Plank 7.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Plank 7.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Rail 1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Rail 1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Rail 2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Rail 2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Elements.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Elements/Cloud.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Elements/Cloud.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Elements/fire.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Elements/fire.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console/Console.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console/Console.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console/Gear.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console/Gear.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console/Lever.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console/Lever.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console/Panel.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Gears and Console/Panel.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Generator.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Generator/Generator.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Generator/Generator.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Mascot.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Mascot/Mascot.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Mascot/Mascot.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/News Paper.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/News Paper/Paper.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/News Paper/Paper.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Switch.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Switch/Switch.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Switch/Switch.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/plank.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/plank.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Bridge.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Bridge.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Ferris Wheel 2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Ferris Wheel 2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Gears and Switch.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Gears and Switch.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Generator.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Generator.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Key.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Mascot.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Mascot.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Newspaper3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Newspaper3.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/2TestSubScene2 1.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/2TestSubScene2 1.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BalloonPop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge handle 1 Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge handle 1 Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge handle colour 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge handle colour 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge handle colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge handle colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge rail 2 normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge rail 2 normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge rail colour 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge rail colour 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge rail colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Bridge rail colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Handle 2 colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Handle 2 colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 2 Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 2 Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 3 Normal 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 3 Normal 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 3 Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 3 Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 3 colour bake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 3 colour bake.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 4 bake colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 4 bake colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 4 normal bake.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 4 normal bake.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 5 Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 5 Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 5 colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 5 colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 6 colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 6 colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 7 Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 7 Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 7 colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Plank 7 colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Rail 1 normal .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Rail 1 normal .png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Wood plank Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Wood plank Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Wood plank Normal 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Wood plank Normal 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Wood plank Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/Wood plank Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/rail 1 colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Bridge/rail 1 colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Console colour.002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Console colour.002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Console metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Console metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Console normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Console normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Console roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Console roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Gear Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Gear Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Gear Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Gear Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Gear Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Gear Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Gear Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Gear Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Normal 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Normal 1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Lever Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Panel colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Panel colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Panel metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Panel metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Panel normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Panel normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Panel roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Console and Gears/Panel roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements/cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements/cloud.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements/clouds2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements/clouds2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements/fire2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements/fire2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements/fire3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Elements/fire3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Material.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Material.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Material.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Material.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roof Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cart Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 1 Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 1 Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 1 Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 1 Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 1 Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 1 Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 1 Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 1 Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 2 Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Circle 2 Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cylinder Middle Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cylinder Middle Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cylinder Middle Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cylinder Middle Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cylinder Middle Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cylinder Middle Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cylinder Middle Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Cylinder Middle Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Medium Cylinder Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Medium Cylinder Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Medium Cylinder Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Medium Cylinder Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Medium Cylinder Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Medium Cylinder Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Medium Cylinder Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Medium Cylinder Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Small Cylinder Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Small Cylinder Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Small Cylinder Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Small Cylinder Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Small Cylinder Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Small Cylinder Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Small Cylinder Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Small Cylinder Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 1 Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 1 Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 1 Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 1 Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 1 Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 1 Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 1 Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 1 Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 2 Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel 2 Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel Stand Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel Stand Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel Stand Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel Stand Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel Stand Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Ferris Wheel/Ferris Wheel Stand Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator/Generator Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator/Generator Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator/Generator Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator/Generator Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator/Generator Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator/Generator Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator/Generator Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Generator/Generator Roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Key.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Key/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Key/Materials/Torus Metallic.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Key/Materials/Torus Metallic.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot/Mascot metal colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot/Mascot metal colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot/Mascot metal metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot/Mascot metal metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot/Mascot metal normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot/Mascot metal normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot/Mascot metal roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Mascot/Mascot metal roughness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/News Paper.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/News Paper/Old Paper.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/News Paper/Old Paper.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch/Switch Colour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch/Switch Colour.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch/Switch Metallic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch/Switch Metallic.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch/Switch Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch/Switch Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch/Switch Roughness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Textures/Switch/Switch Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BalloonPop.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BalloonPop.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BalloonPop.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Yellow.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Bridge/Handle 1.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Level Design3.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Level Design3.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SubmissionScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SubmissionScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSubScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSubScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonControls.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
