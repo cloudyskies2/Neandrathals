@@ -5,11 +5,12 @@ using UnityEngine;
 public class FixableObject : MonoBehaviour
 {
     public GameObject targetPosition; // The position where this object should be placed
-    //public GameObject dullLight;
+    public GameObject dullLight;
     public GameObject litLight;
     public Transform lightSwitch;
     public Transform newLightSwitchTransform;    
     public float placementDistance = 3f; // The required distance to place the object
+    public GameObject particles;
     //private GameObject ferrisLights;
 
 
@@ -40,6 +41,8 @@ public class FixableObject : MonoBehaviour
                
                 //dullLight.SetActive(false);
                 litLight.SetActive(true);
+                dullLight.SetActive(false);
+                particles.SetActive(false);
                 }
 
                  else

@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Balloon
   - Light
+  - Switch
   layers:
   - Default
   - TransparentFX
