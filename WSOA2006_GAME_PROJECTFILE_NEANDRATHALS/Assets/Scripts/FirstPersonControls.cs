@@ -1,6 +1,8 @@
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class FirstPersonControls : MonoBehaviour
 {
@@ -62,6 +64,11 @@ public class FirstPersonControls : MonoBehaviour
     public Transform climbPosition; // Position to where the climbing will be attached
     //public Vector3 verticalVelocity;
 
+    [Header("UI SETTINGS")]
+    public Image pickUpImage;
+    public TextMeshProUGUI pickUpText;
+
+
     
 
     private void Awake()
@@ -106,6 +113,7 @@ public class FirstPersonControls : MonoBehaviour
         Move();
         LookAround();
         ApplyGravity();
+        CheckForPickUp();
 //<<<<<<< HEAD
         //Climb();
 //=======
@@ -216,7 +224,7 @@ public class FirstPersonControls : MonoBehaviour
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
             // Check if the hit object has the tag "PickUp"
-            if (hit.collider.CompareTag("PickUp"))
+            if (hit.collider.CompareTag("PickUp") || hit.collider.CompareTag("Knob"))
             {
                 // Pick up the object
                 heldObject = hit.collider.gameObject;
@@ -252,6 +260,20 @@ public class FirstPersonControls : MonoBehaviour
         }
     }
 
+   public void DropObject()
+    {
+        if (heldObject != null)
+        {
+            // Enable physics and detach the object
+            heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+            heldObject.transform.parent = null; // Detach from hold position
+
+            // Clear the reference to the held object
+            heldObject = null;
+            holdingGun = false; // Reset holdingGun flag if the dropped object is a gun
+            fixableObjectScript = null;
+        }
+    }
      public void FixObject()
     {
         if (heldObject != null && fixableObjectScript != null)
@@ -266,8 +288,45 @@ public class FirstPersonControls : MonoBehaviour
             fixableObjectScript = null;
         }
 
+
         
     }
+
+private void CheckForPickUp()
+{
+Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+RaycastHit hit;
+// Perform raycast to detect objects
+if (Physics.Raycast(ray, out hit, pickUpRange))
+{
+// Check if the object has the "PickUp" tag
+if (hit.collider.CompareTag("PickUp") || hit.collider.CompareTag("Knob"))
+{
+    fixableObjectScript = hit.collider.GetComponent<FixableObject>();
+
+    if (fixableObjectScript != null)
+        {
+        // Display the pick-up text
+            pickUpImage.gameObject.SetActive(true);
+            pickUpText.gameObject.SetActive(true);
+            pickUpText.text = fixableObjectScript.objectText;  // Use the unique text from each object
+        }
+}
+else
+{
+// Hide the pick-up text if not looking at a "PickUp" object
+            pickUpImage.gameObject.SetActive(false);
+            pickUpText.gameObject.SetActive(false);
+}
+}
+else
+{
+// Hide the text if not looking at any object
+            pickUpImage.gameObject.SetActive(false);
+            pickUpText.gameObject.SetActive(false);
+}
+}
+
 
 //<<<<<<< HEAD
 //=======
@@ -318,19 +377,7 @@ public class FirstPersonControls : MonoBehaviour
     }*/
 
     //Use the R key to drop the held object
-     public void DropObject()
-    {
-        if (heldObject != null)
-        {
-            // Enable physics and detach the object
-            heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
-            heldObject.transform.parent = null; // Detach from hold position
-
-            // Clear the reference to the held object
-            heldObject = null;
-            holdingGun = false; // Reset holdingGun flag if the dropped object is a gun
-        }
-    }
+  
 
 //>>>>>>> Sisanda-New-Branch
     public void ToggleCrouch()

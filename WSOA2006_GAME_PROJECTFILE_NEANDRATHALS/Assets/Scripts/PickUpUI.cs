@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainFix : MonoBehaviour
+public class PickUpUI : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
