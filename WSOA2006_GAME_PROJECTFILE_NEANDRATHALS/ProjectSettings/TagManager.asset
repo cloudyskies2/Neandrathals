@@ -12,6 +12,7 @@ TagManager:
   - Light
   - Switch
   - Knob
+  - Observe
   layers:
   - Default
   - TransparentFX

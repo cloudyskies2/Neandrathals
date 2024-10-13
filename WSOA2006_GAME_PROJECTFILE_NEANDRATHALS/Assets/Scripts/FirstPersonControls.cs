@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class FirstPersonControls : MonoBehaviour
@@ -15,6 +16,9 @@ public class FirstPersonControls : MonoBehaviour
     public float jumpHeight = 1.0f; // Height of the jump
     public Transform playerCamera; // Reference to the player's camera
                                    // Private variables to store input values and the character controller
+
+    //public AudioSource footsteps;
+    public AudioSource jump;
 
     private Vector2 moveInput; // Stores the movement input from the player
     private Vector2 lookInput; // Stores the look input from the player
@@ -67,6 +71,16 @@ public class FirstPersonControls : MonoBehaviour
     [Header("UI SETTINGS")]
     public Image pickUpImage;
     public TextMeshProUGUI pickUpText;
+    public TMP_Text errorText;
+    private float errorDisplayDuration = 3f; // Time for error message to stay on screen
+    private bool errorShowing = false;
+
+
+    [Header("INTERACT SETTINGS")]
+    [Space(5)]
+    public float rotationSpeed = 100f; // Speed at which objects are rotated in inspect mode
+    private bool isInspecting = false; // Track if player is inspecting an object
+    private Controls playerInput;
 
 
     
@@ -75,11 +89,10 @@ public class FirstPersonControls : MonoBehaviour
     {
         // Get and store the CharacterController component attached to this GameObject
         characterController = GetComponent<CharacterController>();
+        playerInput = new Controls();
     }
     private void OnEnable()
     {
-        // Create a new instance of the input actions
-        var playerInput = new Controls();
         // Enable the input actions
         playerInput.Player.Enable();
         // Subscribe to the movement input events
@@ -105,7 +118,14 @@ public class FirstPersonControls : MonoBehaviour
 
         playerInput.Player.Crouch.performed += ctx => ToggleCrouch(); // Call the ToggleCrouch method when crouch input is performed
 
+         playerInput.Player.Interact.performed += ctx => ToggleInspectionMode();
+
         //playerInput.Player.Climb.performed += ctx => Climb(); // Call the Climb method when climb input is performed
+    }
+
+    void Start()
+    {
+         errorText.enabled = false;
     }
     private void Update()
     {
@@ -114,6 +134,11 @@ public class FirstPersonControls : MonoBehaviour
         LookAround();
         ApplyGravity();
         CheckForPickUp();
+
+        if (isInspecting && heldObject != null)
+        {
+            RotateHeldObject();
+        }
 //<<<<<<< HEAD
         //Climb();
 //=======
@@ -184,6 +209,16 @@ public class FirstPersonControls : MonoBehaviour
             // Calculate the jump velocity
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+
+        if(Input.GetKey(KeyCode.Space))
+        {
+            jump.enabled = true;
+            jump.Play();
+        }
+        else
+        {
+            jump.enabled = false;
+        }
     }
     public void Shoot()
     {
@@ -211,6 +246,7 @@ public class FirstPersonControls : MonoBehaviour
             heldObject.transform.parent = null;
             holdingGun = false;
             fixableObjectScript = null;
+            isInspecting = false; // Exit inspection mode if active
             return;
         }
 
@@ -237,6 +273,7 @@ public class FirstPersonControls : MonoBehaviour
                     heldObject.transform.position = holdPosition.position;
                     heldObject.transform.rotation = holdPosition.rotation;
                     heldObject.transform.parent = holdPosition;
+                    fixableObjectScript.OnPickedUp();
                 }
 
                 // Attach the object to the hold position
@@ -276,9 +313,12 @@ public class FirstPersonControls : MonoBehaviour
     }
      public void FixObject()
     {
+
         if (heldObject != null && fixableObjectScript != null)
         {
             // Place the object at its target position
+             if (!isInspecting)
+            {
             fixableObjectScript.PlaceAtTarget();
 
             // Reset the state
@@ -286,9 +326,30 @@ public class FirstPersonControls : MonoBehaviour
             heldObject.transform.parent = null;
             heldObject = null;
             fixableObjectScript = null;
+            }
+            else
+            {
+                ShowErrorMessage("Press 'F' to exit inspection mode before fixing the object.");
+            }
         }
+    }
 
+        private void ShowErrorMessage(string message)
+    {
+        if (!errorShowing) // Only show the message if one is not already displayed
+        {
+            errorText.text = message; // Set the error message
+            errorText.enabled = true; // Show the text on the screen
+            errorShowing = true;
+            StartCoroutine(HideErrorMessageAfterDelay()); // Hide it after a short delay
+        }
+    }
 
+        private IEnumerator HideErrorMessageAfterDelay()
+    {
+        yield return new WaitForSeconds(errorDisplayDuration); // Wait for the set duration
+        errorText.enabled = false; // Hide the error text
+        errorShowing = false; // Reset the error state
         
     }
 
@@ -326,6 +387,25 @@ else
             pickUpText.gameObject.SetActive(false);
 }
 }
+
+public void ToggleInspectionMode()
+    {
+        if (heldObject != null)
+        {
+            isInspecting = !isInspecting; // Toggle between inspection mode and normal mode
+
+            if (isInspecting)
+            {
+                // Move the object closer to the screen for inspection
+                heldObject.transform.position = holdPosition.position + playerCamera.forward * 1.5f; // Adjust the distance for reading
+            }
+            else
+            {
+                // Return the object to the hold position when done inspecting
+                heldObject.transform.position = holdPosition.position;
+            }
+        }
+    }
 
 
 //<<<<<<< HEAD
@@ -496,6 +576,13 @@ else
 
         climbObject.transform.parent = null; // Detach from hold position
         climbObject = null;
+    }
+
+    private void RotateHeldObject()
+    {
+        Vector2 rotateInput = playerInput.Player.LookAround.ReadValue<Vector2>(); // Use look input to rotate
+        heldObject.transform.Rotate(playerCamera.transform.up, -rotateInput.x * rotationSpeed * Time.deltaTime, Space.World); // Rotate around y-axis
+        heldObject.transform.Rotate(playerCamera.transform.right, rotateInput.y * rotationSpeed * Time.deltaTime, Space.World); // Rotate around x-axis
     }
 
     /*private void GrabClimb()
