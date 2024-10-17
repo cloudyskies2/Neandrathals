@@ -4,11 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bullet
   - Gun
-  - PickUp
-  - Balloon
   - Ladder
+  - PickUp
+  - Bullet
+  - Balloon
+  - Light
+  - Switch
+  - Knob
   layers:
   - Default
   - TransparentFX

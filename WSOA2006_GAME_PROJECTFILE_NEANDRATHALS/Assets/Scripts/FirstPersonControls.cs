@@ -1,5 +1,8 @@
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class FirstPersonControls : MonoBehaviour
 {
@@ -31,6 +34,7 @@ public class FirstPersonControls : MonoBehaviour
     private GameObject heldObject; // Reference to the currently held object
     public float pickUpRange = 3f; // Range within which objects can be picked up
     private bool holdingGun = false;
+     private FixableObject fixableObjectScript;
 
     [Header("CROUCH SETTINGS")]
     [Space(5)]
@@ -41,13 +45,13 @@ public class FirstPersonControls : MonoBehaviour
 
 //<<<<<<< HEAD
 //=======
-        [Header("THROWING SETTINGS")] //The ENTER key is pressed to charge and throw a held object
+      /*  [Header("THROWING SETTINGS")] //The ENTER key is pressed to charge and throw a held object
     [Space(5)]
     public float minThrowForce = 2f; // Minimum force applied when throwing
     public float maxThrowForce = 15f; // Maximum force applied when throwing
     private float currentThrowForce; // Force to apply when throwing
     private bool isChargingThrow = false; // Whether the player is charging the throw
-    private GameObject balloon; //The player uses the small yellow balls to shoot at the spheres on the wall
+    private GameObject balloon; //The player uses the small yellow balls to shoot at the spheres on the wall*/
 //>>>>>>> Sisanda-New-Branch
 
     [Header("CLIMB SETTINGS")]
@@ -59,6 +63,13 @@ public class FirstPersonControls : MonoBehaviour
     public GameObject climbObject; // Reference to the object to be climbed
     public Transform climbPosition; // Position to where the climbing will be attached
     //public Vector3 verticalVelocity;
+
+    [Header("UI SETTINGS")]
+    public Image pickUpImage;
+    public TextMeshProUGUI pickUpText;
+
+
+    
 
     private void Awake()
     {
@@ -72,17 +83,12 @@ public class FirstPersonControls : MonoBehaviour
         // Enable the input actions
         playerInput.Player.Enable();
         // Subscribe to the movement input events
-        playerInput.Player.Movement.performed += ctx => moveInput =
-        ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
-
-        playerInput.Player.Movement.canceled += ctx => moveInput =
-        Vector2.zero; // Reset moveInput when movement input is canceled
+        playerInput.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>(); // Update moveInput when movement input is performed
+        playerInput.Player.Movement.canceled += ctx => moveInput = Vector2.zero; // Reset moveInput when movement input is canceled
                       // Subscribe to the look input events
 
-        playerInput.Player.LookAround.performed += ctx => lookInput =
-        ctx.ReadValue<Vector2>(); // Update lookInput when look input is performed
-        playerInput.Player.LookAround.canceled += ctx => lookInput =
-        Vector2.zero; // Reset lookInput when look input is canceled
+        playerInput.Player.LookAround.performed += ctx => lookInput = ctx.ReadValue<Vector2>(); // Update lookInput when look input is performed
+        playerInput.Player.LookAround.canceled += ctx => lookInput = Vector2.zero; // Reset lookInput when look input is canceled
                       // Subscribe to the jump input event
 
         playerInput.Player.Jump.performed += ctx => Jump(); // Call the Jump method when jump input is performed
@@ -92,6 +98,10 @@ public class FirstPersonControls : MonoBehaviour
 
         // Subscribe to the pick-up input event
         playerInput.Player.PickUp.performed += ctx => PickUpObject(); // Call the PickUpObject method when pick-up input is performed
+
+        playerInput.Player.Fix.performed += ctx => FixObject();
+
+        playerInput.Player.Drop.performed += ctx => DropObject();
 
         playerInput.Player.Crouch.performed += ctx => ToggleCrouch(); // Call the ToggleCrouch method when crouch input is performed
 
@@ -103,15 +113,16 @@ public class FirstPersonControls : MonoBehaviour
         Move();
         LookAround();
         ApplyGravity();
+        CheckForPickUp();
 //<<<<<<< HEAD
         //Climb();
 //=======
 
         // Update the throw charge if charging
-        if (isChargingThrow)
+        /*if (isChargingThrow)
         {
             ChargeThrow();
-        }
+        }*/
 //>>>>>>> Sisanda-New-Branch
     }
     public void Move()
@@ -190,6 +201,7 @@ public class FirstPersonControls : MonoBehaviour
             Destroy(projectile, 3f);
         }
     }
+    
     public void PickUpObject()
     {
         // Check if we are already holding an object
@@ -198,6 +210,8 @@ public class FirstPersonControls : MonoBehaviour
             heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
             heldObject.transform.parent = null;
             holdingGun = false;
+            fixableObjectScript = null;
+            return;
         }
 
         // Perform a raycast from the camera's position forward
@@ -210,11 +224,20 @@ public class FirstPersonControls : MonoBehaviour
         if (Physics.Raycast(ray, out hit, pickUpRange))
         {
             // Check if the hit object has the tag "PickUp"
-            if (hit.collider.CompareTag("PickUp"))
+            if (hit.collider.CompareTag("PickUp") || hit.collider.CompareTag("Knob"))
             {
                 // Pick up the object
                 heldObject = hit.collider.gameObject;
                 heldObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+                fixableObjectScript = heldObject.GetComponent<FixableObject>();
+               
+                if (fixableObjectScript != null)
+                {
+                    heldObject.GetComponent<Rigidbody>().isKinematic = true; // Disable physics
+                    heldObject.transform.position = holdPosition.position;
+                    heldObject.transform.rotation = holdPosition.rotation;
+                    heldObject.transform.parent = holdPosition;
+                }
 
                 // Attach the object to the hold position
                 heldObject.transform.position = holdPosition.position;
@@ -237,9 +260,77 @@ public class FirstPersonControls : MonoBehaviour
         }
     }
 
+   public void DropObject()
+    {
+        if (heldObject != null)
+        {
+            // Enable physics and detach the object
+            heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
+            heldObject.transform.parent = null; // Detach from hold position
+
+            // Clear the reference to the held object
+            heldObject = null;
+            holdingGun = false; // Reset holdingGun flag if the dropped object is a gun
+            fixableObjectScript = null;
+        }
+    }
+     public void FixObject()
+    {
+        if (heldObject != null && fixableObjectScript != null)
+        {
+            // Place the object at its target position
+            fixableObjectScript.PlaceAtTarget();
+
+            // Reset the state
+            heldObject.GetComponent<Rigidbody>().isKinematic = true;
+            heldObject.transform.parent = null;
+            heldObject = null;
+            fixableObjectScript = null;
+        }
+
+
+        
+    }
+
+private void CheckForPickUp()
+{
+Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+RaycastHit hit;
+// Perform raycast to detect objects
+if (Physics.Raycast(ray, out hit, pickUpRange))
+{
+// Check if the object has the "PickUp" tag
+if (hit.collider.CompareTag("PickUp") || hit.collider.CompareTag("Knob"))
+{
+    fixableObjectScript = hit.collider.GetComponent<FixableObject>();
+
+    if (fixableObjectScript != null)
+        {
+        // Display the pick-up text
+            pickUpImage.gameObject.SetActive(true);
+            pickUpText.gameObject.SetActive(true);
+            pickUpText.text = fixableObjectScript.objectText;  // Use the unique text from each object
+        }
+}
+else
+{
+// Hide the pick-up text if not looking at a "PickUp" object
+            pickUpImage.gameObject.SetActive(false);
+            pickUpText.gameObject.SetActive(false);
+}
+}
+else
+{
+// Hide the text if not looking at any object
+            pickUpImage.gameObject.SetActive(false);
+            pickUpText.gameObject.SetActive(false);
+}
+}
+
+
 //<<<<<<< HEAD
 //=======
-    void OnCollisionEnter(Collision collision)
+    /*void OnCollisionEnter(Collision collision)
     {
 
     if(collision.gameObject.CompareTag("Balloon"))
@@ -283,22 +374,10 @@ public class FirstPersonControls : MonoBehaviour
 
             isChargingThrow = false; // Stop charging
         }
-    }
+    }*/
 
     //Use the R key to drop the held object
-     public void DropObject()
-    {
-        if (heldObject != null)
-        {
-            // Enable physics and detach the object
-            heldObject.GetComponent<Rigidbody>().isKinematic = false; // Enable physics
-            heldObject.transform.parent = null; // Detach from hold position
-
-            // Clear the reference to the held object
-            heldObject = null;
-            holdingGun = false; // Reset holdingGun flag if the dropped object is a gun
-        }
-    }
+  
 
 //>>>>>>> Sisanda-New-Branch
     public void ToggleCrouch()
