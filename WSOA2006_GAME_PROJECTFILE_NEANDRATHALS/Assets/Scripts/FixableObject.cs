@@ -9,13 +9,18 @@ public class FixableObject : MonoBehaviour
     public GameObject litLight;
     public Transform lightSwitch;
     public Transform newLightSwitchTransform;    
-    public float placementDistance = 3f; // The required distance to place the object
+    public float placementDistance = 6f; // The required distance to place the object
     public GameObject particles;
     public GameObject animationPrefab; // Prefab of the 3D animation to be played
-     public Vector3 animationOffset = new Vector3(1, 0, 0); // Offset for the animation from the camera
+     public Vector3 animationOffset = new Vector3(0, 0, 0); // Offset for the animation from the camera
     public float animationDistance = 3f;
     //private GameObject ferrisLights;
      public string objectText;
+
+    public GameObject player;         // The player object
+    public GameObject popUpObject;    // The object that pops up (e.g., a UI or visual cue)
+    public float activationDistance = 9f;  // Distance at which the pop-up appears
+    private bool isPickedUp = false; 
 
 
     
@@ -26,32 +31,21 @@ public class FixableObject : MonoBehaviour
         litLight.SetActive(false);
     }
     
-/*private void CheckForPickUp()
-{
-Ray ray = new Ray(playerCamera.position, playerCamera.forward);
-RaycastHit hit;
-// Perform raycast to detect objects
-if (Physics.Raycast(ray, out hit, pickUpRange))
-{
-// Check if the object has the "PickUp" tag
-if (hit.collider.CompareTag("PickUp"))
-{
-// Display the pick-up text
-pickUpText.gameObject.SetActive(true);
-pickUpText.text = hit.collider.gameObject.a;
-}
-else
-{
-// Hide the pick-up text if not looking at a "PickUp" object
-pickUpText.gameObject.SetActive(false);
-}
-}
-else
-{
-// Hide the text if not looking at any object
-pickUpText.gameObject.SetActive(false);
-}
-}*/
+    private void Update()
+    {
+        // Check distance between player and the object that holds this script
+        float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+        // If the player is within activation distance and the object has not been picked up
+        if (distanceToPlayer <= activationDistance && !isPickedUp)
+        {
+            popUpObject.SetActive(true);  // Show the pop-up object
+        }
+        else
+        {
+            popUpObject.SetActive(false); // Hide the pop-up object if the player is far away or if the object is picked up
+        }
+    }
     
     public void PlaceAtTarget()
     {
@@ -88,27 +82,36 @@ pickUpText.gameObject.SetActive(false);
 
         private void PlayAnimationAtOffset()
     {
-         if (animationPrefab != null)
-        {
-            // Get the camera's transform
-            Transform cameraTransform = Camera.main.transform;
+if (animationPrefab != null)
+    {
+                // Get the camera's transform
+        Transform cameraTransform = Camera.main.transform;
 
-            // Calculate the position in front of the camera by animationDistance units, with additional offset
-            Vector3 animationPosition = cameraTransform.position + cameraTransform.forward * animationDistance + animationOffset;
+        // Calculate the position in front of the camera by animationDistance units, with additional offset
+        Vector3 animationPosition = cameraTransform.position + cameraTransform.forward * animationDistance + animationOffset;
 
-            // Use the camera's rotation for the animation but optionally modify it
-            Quaternion animationRotation = cameraTransform.rotation;
+        // Set the rotation so that the front of the picture frame faces the camera
+        Quaternion animationRotation = Quaternion.LookRotation(cameraTransform.position - animationPosition, Vector3.up);
 
-            // Instantiate the animation prefab at the calculated position and rotation
-            GameObject animationInstance = Instantiate(animationPrefab, animationPosition, animationRotation);
+        // Instantiate the animation prefab at the calculated position and rotation
+        GameObject animationInstance = Instantiate(animationPrefab, animationPosition, animationRotation);
 
-            // Optionally, destroy the animation after its duration (assumed duration is 3 seconds here)
-            Destroy(animationInstance, 2f); 
-        }
-        else
-        {
-            Debug.LogWarning("No animation prefab assigned.");
-        }
+        animationInstance.transform.localScale *= 0.2f; // Scale it down (0.5f means half the size)
+
+        // Optionally, destroy the animation after its duration (assumed duration is 2 seconds here)
+        Destroy(animationInstance, 2f);
+    }
+    else
+    {
+        Debug.LogWarning("No animation prefab assigned.");
+    }
+    }
+
+     // Call this function from the pickup script when the object is picked up
+    public void OnPickedUp()
+    {
+        isPickedUp = true;          // Mark the object as picked up
+        popUpObject.SetActive(false); // Permanently hide the pop-up object
     }
 
 }
