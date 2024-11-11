@@ -6,7 +6,7 @@ public class ProgressBulb : MonoBehaviour
 {
     public GameObject bulbPrefab;
     public PlayerProgress playerProgress;
-    // Start is called before the first frame update
+    List<ProgressBar> bulbs = new List<ProgressBar>();
     void Start()
     {
         

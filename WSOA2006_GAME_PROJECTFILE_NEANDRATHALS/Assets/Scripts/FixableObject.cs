@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FixableObject : MonoBehaviour
 {
+
+    public enum InteractionType { Fix, Observe, TurnOnLights }
+    public InteractionType interactionType;
     public GameObject targetPosition; // The position where this object should be placed
     public GameObject dullLight;
     public GameObject litLight;
@@ -21,6 +24,8 @@ public class FixableObject : MonoBehaviour
     public GameObject popUpObject;    // The object that pops up (e.g., a UI or visual cue)
     public float activationDistance = 9f;  // Distance at which the pop-up appears
     private bool isPickedUp = false; 
+    private FirstPersonControls firstPersonControlsScript;
+
 
 
     
@@ -29,6 +34,7 @@ public class FixableObject : MonoBehaviour
     void Start()
     {
         litLight.SetActive(false);
+
     }
     
     private void Update()
@@ -46,11 +52,41 @@ public class FixableObject : MonoBehaviour
             popUpObject.SetActive(false); // Hide the pop-up object if the player is far away or if the object is picked up
         }
     }
+
+    public void PerformInteraction (GameObject heldObject = null)
+    {
+       switch (interactionType)
+    {
+        case InteractionType.Fix:
+            if (heldObject != null)
+            {
+                PlaceAtTarget(heldObject);
+            }
+            else
+            {
+                Debug.LogWarning("Fix interaction requires a held object.");
+            }
+            break;
+        case InteractionType.Observe:
+            if (heldObject != null)
+            {
+                ObserveObject(heldObject);
+            }
+            else
+            {
+                Debug.LogWarning("Observe interaction requires a held object.");
+            }
+            break;
+        case InteractionType.TurnOnLights:
+            TurnOnLights();
+            break;
+    }
+    }
     
-    public void PlaceAtTarget()
+   /* public void PlaceAtTarget()
     {
         
-        if (targetPosition.transform != null)
+        if (targetPosition.transform != null )
         {
             float distanceToTarget = Vector3.Distance(transform.position, targetPosition.transform.position);
 
@@ -78,7 +114,81 @@ public class FixableObject : MonoBehaviour
                 Debug.Log("Object is too far from the target position. Move closer to place.");
                 }
         }
+    }*/
+
+     public void PlaceAtTarget(GameObject heldObject)
+    {
+        
+        if (targetPosition.transform != null )
+        {
+            float distanceToTarget = Vector3.Distance(transform.position, targetPosition.transform.position);
+            
+
+            if (distanceToTarget <= placementDistance)
+                {
+                transform.position = targetPosition.transform.position;
+                transform.rotation = targetPosition.transform.rotation;
+                gameObject.transform.parent = targetPosition.transform;
+
+                 lightSwitch.position = newLightSwitchTransform.position;
+                lightSwitch.rotation = newLightSwitchTransform.rotation;
+
+               
+                //dullLight.SetActive(false);
+             
+                {
+       
+                } 
+                litLight.SetActive(true);
+                //dullLight.SetActive(false);
+                particles.SetActive(false);
+
+                PlayAnimationAtOffset();
+                
+               
+                }
+
+                 else 
+                {
+                Debug.Log("Object is too far from the target position. Move closer to place.");
+                }
+        }
     }
+
+
+    public void ObserveObject(GameObject heldObject)
+    {
+        firstPersonControlsScript = heldObject.GetComponent<FirstPersonControls>();
+        firstPersonControlsScript.ToggleInspectionMode();
+    }
+
+    public void TurnOnLights()
+
+    {
+        if (targetPosition.transform != null )
+        {
+            float distanceToTarget = Vector3.Distance(transform.position, targetPosition.transform.position);
+            
+
+            if (distanceToTarget <= placementDistance)
+                {
+                litLight.SetActive(true);
+
+                lightSwitch.position = newLightSwitchTransform.position;
+                lightSwitch.rotation = newLightSwitchTransform.rotation;
+
+                
+               
+                }
+
+                 else 
+                {
+                Debug.Log("Object is too far from the target position. Move closer to place.");
+                }
+        }
+    }
+
+
 
         private void PlayAnimationAtOffset()
     {

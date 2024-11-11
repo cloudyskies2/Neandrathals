@@ -13,6 +13,9 @@ TagManager:
   - Switch
   - Knob
   - Observe
+  - Test
+  - SwitchOn
+  - Fix
   layers:
   - Default
   - TransparentFX
