@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "4a06fed4-1e38-4b19-b670-7dd204b4176d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -286,22 +295,22 @@
                 },
                 {
                     "name": "",
-                    "id": "4bc520a7-7a09-45be-bfb4-e12a872c281b",
-                    "path": "<Keyboard>/e",
+                    "id": "24bf2b9e-a11d-4e37-ae4e-779c58ee1c4a",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Gamepad",
                     "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "24bf2b9e-a11d-4e37-ae4e-779c58ee1c4a",
-                    "path": "<Gamepad>/buttonWest",
+                    "id": "ff340b11-451b-4089-82f8-b7b9f4704abe",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "",
                     "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -331,7 +340,7 @@
                 {
                     "name": "",
                     "id": "95ea0019-39fc-49a9-b2a5-bb5feeca2379",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -352,25 +361,80 @@
                 },
                 {
                     "name": "",
-                    "id": "55156a00-80d9-4e3b-89c6-c85644c49109",
+                    "id": "1a92e01e-08ca-4853-b93d-eb8c3d284620",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "90899970-26ff-42b3-a59c-e9f1ef2fff12",
-                    "path": "<Keyboard>/t",
+                    "id": "687095c8-ba03-4610-a339-469062397bd8",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Fix",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "04bd0594-2954-4de2-a62a-eb032897d8c7",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Up",
+                    "id": "5a99c5d0-bab4-4094-93c3-2ef7383d0a86",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "0eb30b94-f5c1-44c6-8168-2e3fcd181784",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "b26fb2ec-fc64-4a11-a481-6e3e6cf5def5",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "0b3259a4-8edf-4acf-b377-2349e9d86659",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
