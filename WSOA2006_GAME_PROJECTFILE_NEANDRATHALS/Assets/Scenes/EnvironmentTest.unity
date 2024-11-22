@@ -287,7 +287,7 @@ Terrain:
   m_GameObject: {fileID: 13421844}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: c6dd29556e5598841a1e7bbd55281418, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -380,7 +380,7 @@ Terrain:
   m_GameObject: {fileID: 215654331}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: f96f6e64756ff174ca173c8bd489633c, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -566,7 +566,7 @@ Terrain:
   m_GameObject: {fileID: 981381639}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 7a877971a5807ae41bfc7db130db84b6, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -5999,7 +5999,7 @@ Terrain:
   m_GameObject: {fileID: 1919511276}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: c9911fbddb9d9ac489d9a3d48bc6329e, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5

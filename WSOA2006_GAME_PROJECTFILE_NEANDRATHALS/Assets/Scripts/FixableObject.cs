@@ -167,7 +167,7 @@ public class FixableObject : MonoBehaviour
     {
         if (targetPosition.transform != null )
         {
-            float distanceToTarget = Vector3.Distance(transform.position, targetPosition.transform.position);
+            float distanceToTarget = Vector3.Distance(transform.position, player.transform.position);
             
 
             if (distanceToTarget <= placementDistance)

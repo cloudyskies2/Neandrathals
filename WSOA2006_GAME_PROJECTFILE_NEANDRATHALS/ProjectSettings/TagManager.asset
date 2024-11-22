@@ -16,6 +16,7 @@ TagManager:
   - Test
   - SwitchOn
   - Fix
+  - Door
   layers:
   - Default
   - TransparentFX

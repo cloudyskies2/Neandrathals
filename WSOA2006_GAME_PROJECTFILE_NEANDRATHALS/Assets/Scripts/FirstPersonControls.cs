@@ -86,6 +86,7 @@ public class FirstPersonControls : MonoBehaviour
     private bool isInspecting = false; // Track if player is inspecting an object
    //private bool isInteracting = false;
     private Controls playerInput;
+    private DoorController doorControllerScript;
 
 
     
@@ -94,6 +95,7 @@ public class FirstPersonControls : MonoBehaviour
     {
         // Get and store the CharacterController component attached to this GameObject
         characterController = GetComponent<CharacterController>();
+        
         
     }
     private void OnEnable()
@@ -281,6 +283,10 @@ public class FirstPersonControls : MonoBehaviour
                     heldObject.transform.rotation = holdPosition.rotation;
                     heldObject.transform.parent = holdPosition;
                     fixableObjectScript.OnPickedUp();
+                    
+                    
+          
+                    
                 }
 
                 // Attach the object to the hold position
@@ -382,8 +388,21 @@ public class FirstPersonControls : MonoBehaviour
                 isHoldingObject = true;
             }
         }
+        
+    }
+
+         if (doorControllerScript != null)
+    {
+        float distanceToDoor = Vector3.Distance(transform.position, doorControllerScript.transform.position);
+
+        if (distanceToDoor <= pickUpRange)
+         {
+            doorControllerScript.OpenDoor();
+            return; // Exit once the door interaction is handled
+         }
     }
 }
+
 
         private void ShowErrorMessage(string message)
     {
@@ -412,11 +431,11 @@ RaycastHit hit;
 if (Physics.Raycast(ray, out hit, pickUpRange))
 {
 // Check if the object has the "PickUp" tag
-if (hit.collider.CompareTag("Fix") || hit.collider.CompareTag("Observe") || hit.collider.CompareTag("SwitchOn"))
+if (hit.collider.CompareTag("Fix"))
 {
     fixableObjectScript = hit.collider.GetComponent<FixableObject>();
 
-    if (fixableObjectScript != null)
+    if (fixableObjectScript != null && !isHoldingObject)
         {
         // Display the pick-up text
             pickUpImage.gameObject.SetActive(true);
@@ -424,6 +443,20 @@ if (hit.collider.CompareTag("Fix") || hit.collider.CompareTag("Observe") || hit.
             pickUpText.text = fixableObjectScript.objectText;  // Use the unique text from each object
         }
 }
+
+else if (hit.collider.CompareTag("Switch"))
+{
+    fixableObjectScript = hit.collider.GetComponent<FixableObject>();
+
+    if (fixableObjectScript != null && isHoldingObject)
+        {
+        // Display the pick-up text
+            pickUpImage.gameObject.SetActive(true);
+            pickUpText.gameObject.SetActive(true);
+            pickUpText.text = fixableObjectScript.objectText;  // Use the unique text from each object
+        }
+}
+
 else
 {
 // Hide the pick-up text if not looking at a "PickUp" object
