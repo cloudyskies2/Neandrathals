@@ -5,14 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="060e2f1f-443b-42c4-86b8-17098e60adfe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WSOA2006_GAME_PROJECTFILE_NEANDRATHALS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WSOA2006_GAME_PROJECTFILE_NEANDRATHALS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewLevel.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NewLevel.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSubScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSubScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Fantasy Kingdom Gates.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Fantasy Kingdom Gates.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Charcter Jimmy.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Charcter Jimmy.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Charcter rig 1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Charcter rig 1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Grab.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Grab.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Idle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Idle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy Animator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy Animator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy/Jimmy_Diff.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy/Jimmy_Diff.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy/Jimmy_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy/Jimmy_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy/Jimmy_Rough.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jimmy/Jimmy_Rough.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jumping.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Jumping.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Paper Drop.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Paper Drop.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Paper Hold.001.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Paper Hold.001.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Paper Hold.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Paper Hold.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Piece  Drop.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Piece  Drop.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Piece  Hold.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Piece  Hold.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Walk Cycle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Jimmy Rig/Walk Cycle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Tomorrows Dreamland Gates 2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Tomorrows Dreamland Gates 2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final Level Layout.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Final Level Layout.unity.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +137,7 @@
       <workItem from="1723809598872" duration="4549000" />
       <workItem from="1723828494340" duration="527000" />
       <workItem from="1732188983899" duration="3000" />
-      <workItem from="1732220010568" duration="11671000" />
+      <workItem from="1732220010568" duration="12108000" />
     </task>
     <servers />
   </component>
