@@ -87,7 +87,10 @@ public class FirstPersonControls : MonoBehaviour
    //private bool isInteracting = false;
     private Controls playerInput;
 
-
+    [Header("Animations")]
+    [Space(5)]
+    public Animator animator;
+ 
     
 
     private void Awake()
@@ -177,6 +180,10 @@ public class FirstPersonControls : MonoBehaviour
         {
             currentSpeed = moveSpeed;
         }
+        
+        //Move the Character controller based on the movement 
+       // characterController.Move(move * currentSpeed * Time.deltaTime); 
+        //animator.SetFloat("Speed", currentSpeed); 
 
     }
     public void LookAround()
